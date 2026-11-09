@@ -1,0 +1,23 @@
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+
+# LaTeX intermediates; the example PDF and PNG are versioned.
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Local files and temporary output
+tmp/
+dist/
+fonts/

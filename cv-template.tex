@@ -1,0 +1,119 @@
+% SPDX-License-Identifier: MIT
+% All names, institutions, publications, and achievements are fictional examples.
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{fontspec}
+\usepackage{xcolor}
+\setmainfont{Times New Roman}[
+  Ligatures=TeX,
+  BoldFont={Times New Roman Bold},
+  ItalicFont={Times New Roman Italic},
+  BoldItalicFont={Times New Roman Bold Italic}
+]
+\setmonofont{lmmono10-regular.otf}[Scale=MatchLowercase]
+
+\usepackage[left=16mm,right=16mm,top=13mm,bottom=13mm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks,unicode]{hyperref}
+
+% Edit each contact value once; its visible text and link update together.
+\newcommand{\email}{name@example.com}
+\newcommand{\website}{https://example.com}
+
+\hypersetup{
+  pdftitle={Your Name -- Academic CV},
+  pdfauthor={Your Name}
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedright
+
+\titleformat{\section}
+  {\fontsize{13}{14}\selectfont\bfseries}{}{0pt}{}
+  [\vspace{0pt}{\titlerule[0.3pt]}]
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+
+% Shared vertical gap; change this value to adjust every use.
+\newcommand{\addspace}{\vspace{2pt}}
+
+\begin{document}
+\fontsize{11}{12}\selectfont
+
+% Header
+{\fontsize{18}{21}\selectfont\bfseries Your Name}
+\hfill {\fontsize{14}{21}\selectfont Ph.D. Candidate in Computer Science}\par
+\addspace
+{\fontsize{12}{13}\selectfont
+Department of Computer Science, University Name
+\hfill\href{mailto:\email}{Email: \texttt{\email}}}\par
+\addspace
+{\fontsize{12}{13}\selectfont
+Personal website: \href{\website}{\texttt{\website}}
+\hfill Location: City, Country}\par
+
+\section*{Research Interests}
+Machine learning; scientific computing; data-driven modeling.
+
+\section*{Education}
+\textbf{Ph.D. in Computer Science}\hfill 2022.09 -- 2027.06 (expected)\par
+\hspace*{1em}Department of Computer Science, University Name\par
+\hspace*{1em}Research Group Name; Advisor: Prof. A. Researcher.\par
+\textbf{B.Sc. in Computer Science}\hfill 2018.09 -- 2022.06\par
+\hspace*{1em}Department of Computer Science, University Name\par
+\hspace*{1em}First-Class Honours\par
+
+\section*{Publications}
+% Replace every example citation with your own verified bibliographic details.
+\begin{enumerate}[label={[\arabic*]},leftmargin=1.8em,labelsep=0.4em,
+  topsep=1pt,itemsep=3pt,parsep=0pt,partopsep=0pt]
+  \item \textit{[Preprint]} \textbf{Your Name}, A. Researcher, and B. Researcher (2026).
+    Manuscript Title: A Concise Description of the Research Contribution.
+    Preprint repository and identifier.
+  \item \textbf{Your Name}, C. Researcher, and D. Researcher (2025).
+    Published Article Title: Methods, Results, and Applications.
+    \textit{Journal Name}, volume, pages or article number.
+\end{enumerate}
+
+\section*{Research Experience}
+\textbf{Research Intern}\hfill 2025.10 -- Present\par
+\hspace*{1em}Research Institute Name, City, Country\par
+\begin{itemize}[leftmargin=1.8em,topsep=1pt,itemsep=1.5pt,parsep=0pt,partopsep=0pt]
+  \item Evaluate existing methods and develop new models for the research problem.
+\end{itemize}
+\textbf{Research Assistant}\hfill 2024.06 -- 2024.09\par
+\hspace*{1em}Laboratory Name, University Name\par
+\begin{itemize}[leftmargin=1.8em,topsep=1pt,itemsep=1.5pt,parsep=0pt,partopsep=0pt]
+  \item Collected experimental data, conducted analyses, and contributed to a research report.
+\end{itemize}
+
+\section*{Research Projects}
+\textbf{Project Title: Model Evaluation}\hfill 2025.01 -- 2025.12\par
+\hspace*{1em}Project Lead; Research Program Name\par
+\hspace*{1em}Developed an evaluation framework for comparing methods across representative datasets.\par
+\textbf{Project Title: Scientific Data Analysis}\hfill 2024.01 -- 2024.12\par
+\hspace*{1em}Project Lead; University Research Program\par
+\textbf{Project Title: Numerical Modeling}\hfill 2023.09 -- 2024.06\par
+\hspace*{1em}Researcher; Research Group Name\par
+\hspace*{1em}Investigated system behavior using numerical experiments and observational data.\par
+\textbf{Project Title: Reproducible Research Tools}\hfill 2023.01 -- 2023.12\par
+\hspace*{1em}Researcher; University Research Program\par
+\hspace*{1em}Built reusable data-processing tools and documented the analysis workflow.\par
+
+\section*{Awards \& Honors}
+Outstanding Thesis Award, University Name\hfill 2026.06\par
+Graduate Research Fellowship, Funding Organization\hfill 2025.10\par
+Outstanding Student Scholarship, University Name\hfill 2023, 2024, 2025\par
+Academic Innovation Award, University Name\hfill 2024.12\par
+Student Research Competition, Second Prize\hfill 2023.09\par
+
+\section*{Talks \& Presentations}
+Research Symposium; City, Country \textit{(Poster)}\hfill 2026.10\par
+Annual Conference on Research Topic; City, Country \textit{(Oral)}\hfill 2026.04\par
+University Research Forum; City, Country \textit{(Poster)}\hfill 2025.11\par
+Student Research Workshop; City, Country \textit{(Oral)}\hfill 2025.05\par
+
+\end{document}
