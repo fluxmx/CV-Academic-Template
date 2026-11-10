@@ -2,7 +2,7 @@
 
 [English](README.md) | **简体中文**
 
-一个紧凑的 LaTeX 学术 CV 模板，采用 **Times New Roman** 和黑白排版，内容直接写在普通段落中，方便复制修改。不使用自定义文档类或条目框架。示例为 A4 单页，个人 CV 可以按需要扩展为多页。
+一个紧凑的 LaTeX 学术 CV 模板，采用 **Times New Roman**，正文为黑色、预印本示例为红色，内容直接写在普通段落中，方便复制修改。不使用自定义文档类或条目框架。示例为 A4 单页，个人 CV 可以按需要扩展为多页。
 
 示例中的姓名、学校、论文和经历均为虚构占位内容。
 
@@ -42,13 +42,13 @@ xelatex -interaction=nonstopmode -halt-on-error -output-directory=output/pdf cv-
 \newcommand{\website}{https://example.com}
 ```
 
-修改定义后，显示文字和可点击链接会同步更新。网址请保留 `https://`。姓名、职位、所属机构和所在地直接在页首修改；同时更新 `\hypersetup` 中的 `pdftitle` 和 `pdfauthor`。这两个 PDF 元数据字段不控制输出文件名。
+修改定义后，显示文字和可点击链接会同步更新。网址请保留 `https://`。页首采用两行布局：第一行左侧为姓名，右侧为身份与学校；第二行左侧为网站，右侧为邮箱。直接修改这些内容，同时更新 `\hypersetup` 中的 `pdftitle` 和 `pdfauthor`。这两个 PDF 元数据字段不控制输出文件名。
 
 条目使用普通 LaTeX 写法：
 
 ```latex
-\textbf{Degree or position}\hfill 2025.09 -- Present\par
-\hspace*{1em}Institution or details\par
+\textbf{Degree, University Name}\hfill 2025.09 -- Present\par
+\hspace*{1em}Research Group Name; Advisor: Prof. A. Researcher.\par
 ```
 
 - `\section*{标题}` 添加分区。
@@ -58,6 +58,8 @@ xelatex -interaction=nonstopmode -halt-on-error -output-directory=output/pdf cv-
 - 已知月份的日期统一使用 `yyyy.mm`；只有年份的条目保留年份。
 
 研究工作描述保持简洁：正在进行的工作用现在时，已完成的经历用过去时。将所有论文示例替换为真实题名、作者、发表状态和引文信息，并用 `\href{链接}{文字}` 添加实际 DOI 或论文链接。
+
+教育经历将学位与学校合并在同一行并加粗；源码中的院系行已注释，可按需要启用。预印本条目通过 `\textcolor{red}{...}` 显示为红色，与当前 CV 样式保持一致；去掉这层命令即可恢复黑色。
 
 LaTeX 正文中的特殊字符需要转义，例如 `\&`、`\%` 和 `\_`。
 
@@ -81,11 +83,13 @@ LaTeX 正文中的特殊字符需要转义，例如 `\&`、`\%` 和 `\_`。
 
 | 元素 | 字号 / 基线间距 |
 | --- | --- |
-| 姓名 | 18 pt / 21 pt |
-| 职位 | 14 pt / 21 pt |
-| 所属机构与联系方式 | 12 pt / 13 pt |
+| 姓名 | 19 pt / 0 pt（行内设置） |
+| 身份与学校 | 13 pt / 0 pt（行内设置） |
+| 网站与邮箱行 | 12 pt / 16 pt |
 | 分区标题 | 13 pt / 14 pt |
-| 正文 | 11 pt / 12 pt |
+| 正文 | 11 pt / 12.5 pt |
+
+姓名与身份的字号在各自行内分组中设置，共用的段落在分组外结束。调整正文行距时，修改 `\begin{document}` 后 `\fontsize{11}{12.5}\selectfont` 的第二个数值。论文条目之间的间距由 `itemsep=3pt` 控制。
 
 A4 纸张左右页边距为 16 mm、上下为 13 mm。邮箱与网址使用 Latin Modern Mono 等宽字体，正文使用 Times New Roman。修改内容后请检查换行和分页，模板不强制限制页数。
 

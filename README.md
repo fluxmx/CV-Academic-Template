@@ -2,7 +2,7 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-A compact academic CV in LaTeX with **Times New Roman**, a black-and-white layout, and ordinary paragraphs you can copy and edit directly. There is no custom class or entry framework. The example fits on one A4 page; your CV can grow to multiple pages.
+A compact academic CV in LaTeX with **Times New Roman**, black main text, a red preprint example, and ordinary paragraphs you can copy and edit directly. There is no custom class or entry framework. The example fits on one A4 page; your CV can grow to multiple pages.
 
 All names, institutions, publications, and achievements in the example are fictional placeholders.
 
@@ -42,13 +42,13 @@ Email and website values are defined once near the top:
 \newcommand{\website}{https://example.com}
 ```
 
-Changing these definitions updates both the displayed text and clickable links. Include `https://` in the website value. Update the name, position, affiliation, and location in the header, and `pdftitle` / `pdfauthor` in `\hypersetup`. These PDF metadata fields do not control the output filename.
+Changing these definitions updates both the displayed text and clickable links. Include `https://` in the website value. The header has two lines: name on the left and position plus institution on the right, followed by website on the left and email on the right. Update these details and `pdftitle` / `pdfauthor` in `\hypersetup`. These PDF metadata fields do not control the output filename.
 
 Use native LaTeX for entries:
 
 ```latex
-\textbf{Degree or position}\hfill 2025.09 -- Present\par
-\hspace*{1em}Institution or details\par
+\textbf{Degree, University Name}\hfill 2025.09 -- Present\par
+\hspace*{1em}Research Group Name; Advisor: Prof. A. Researcher.\par
 ```
 
 - `\section*{Heading}` adds a section.
@@ -58,6 +58,8 @@ Use native LaTeX for entries:
 - Dates with a known month use `yyyy.mm`; entries with only a known year keep the year.
 
 Keep research descriptions concise. Use present tense for ongoing work and past tense for completed experience. Replace all example citations with verified titles, authors, publication status, and bibliographic details. Add actual DOI or paper links with `\href{URL}{text}`.
+
+Education entries put the degree and institution together in bold, with optional department lines commented out in the source. The preprint citation uses `\textcolor{red}{...}` to match the current CV style; remove the wrapper to use black text.
 
 Escape LaTeX special characters in body text, for example `\&`, `\%`, and `\_`.
 
@@ -81,11 +83,13 @@ The three lengths are left indentation, space before the title, and space after 
 
 | Element | Font size / baseline spacing |
 | --- | --- |
-| Name | 18 pt / 21 pt |
-| Position | 14 pt / 21 pt |
-| Affiliation and contact lines | 12 pt / 13 pt |
+| Name | 19 pt / 0 pt (inline) |
+| Position and institution | 13 pt / 0 pt (inline) |
+| Website and email line | 12 pt / 16 pt |
 | Section titles | 13 pt / 14 pt |
-| Body | 11 pt / 12 pt |
+| Body | 11 pt / 12.5 pt |
+
+The name and position use inline font groups; their shared paragraph ends outside those groups. To adjust body line spacing, change the second value in `\fontsize{11}{12.5}\selectfont` after `\begin{document}`. Publication entries use `itemsep=3pt` for the gap between citations.
 
 A4 margins are 16 mm on the left and right and 13 mm at the top and bottom. Email and website addresses use Latin Modern Mono; the main text uses Times New Roman. Review line wrapping and page breaks after changing content. There is no enforced page limit.
 
